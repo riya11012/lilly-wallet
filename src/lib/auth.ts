@@ -4,6 +4,7 @@ import { db } from './db'
 export interface JWTPayload {
   userId: string
   phoneNumber: string
+  role: string
 }
 
 export class AuthService {

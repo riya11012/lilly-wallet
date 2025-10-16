@@ -13,9 +13,10 @@ const ResendButton: React.FC<Props> = ({ status, onResend }) => {
     <button
       disabled={disabled}
       onClick={onResend}
-      className={`text-blue-600 font-semibold ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:underline'}`}
+      className={`text-blue-600 text-sm font-medium flex items-center gap-1 ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:underline'}`}
     >
-      resend
+      <span>resend</span>
+      <span className="text-xs">↻</span>
     </button>
   );
 };

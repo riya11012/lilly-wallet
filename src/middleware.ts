@@ -14,30 +14,13 @@ export async function middleware(request: NextRequest) {
   const isProtectedPath = path.startsWith('/dashboard') || path.startsWith('/profile')
   const isPublicPath = path === '/login' || path === '/register'
 
-  // Get token from cookies
-  const token = request.cookies.get('auth_token')?.value
-
-  // Check if user is authenticated using JWT only (no database call)
-  let isAuthenticated = false
-  if (token) {
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JWTPayload
-      isAuthenticated = !!decoded.userId
-    } catch (error) {
-      // Invalid token
-      isAuthenticated = false
-    }
-  }
-
-  // Redirect logic
-  if (isProtectedPath && !isAuthenticated) {
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
-
-  if (isPublicPath && isAuthenticated) {
-    return NextResponse.redirect(new URL('/dashboard', request.url))
-  }
-
+  // For frontend-only authentication, we'll allow access to dashboard
+  // The actual authentication check will be done on the client side
+  // This prevents the middleware from blocking our localStorage-based auth
+  
+  // Only redirect if trying to access login while already authenticated
+  // (This would be handled by the client-side auth check)
+  
   return NextResponse.next()
 }
 

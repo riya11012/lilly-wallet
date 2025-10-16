@@ -21,6 +21,11 @@ const config: Config = {
           800: '#1e40af',
           900: '#1e3a8a',
         },
+        lilly: {
+          red: '#dc2626', // red-600
+          'red-light': '#ef4444', // red-500
+          'red-dark': '#b91c1c', // red-700
+        },
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

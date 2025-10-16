@@ -14,8 +14,8 @@ type Props = {
 
 const StatusBadge: React.FC<Props> = ({ status }) => (
   <span className={`inline-flex items-center gap-2`}>
-    <span className={`w-3 h-3 rounded-full ${statusColors[status]}`} />
-    <span className="capitalize">{status}</span>
+    <span className={`w-2 h-2 rounded-full ${statusColors[status]}`} />
+    <span className="capitalize text-sm text-gray-700">{status}</span>
   </span>
 );
 

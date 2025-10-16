@@ -1,7 +1,14 @@
+export enum UserRole {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+  SUPERADMIN = 'SUPERADMIN'
+}
+
 export interface User {
   id: string
   phoneNumber: string
   isVerified: boolean
+  role: UserRole
   firstName?: string
   lastName?: string
   email?: string
